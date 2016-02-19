@@ -1,56 +1,20 @@
 package Start;
 
-import com.sun.org.apache.bcel.internal.generic.Select;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.fail;
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
-import org.openqa.selenium.By;
 
-public class AllTest {
+import java.util.concurrent.TimeUnit;
+
+public class RatesPricing {
 
     public WebDriver driver;
-    private String baseUrl;
-    private boolean acceptNextAlert = true;
-    private StringBuffer verificationErrors = new StringBuffer();
 
-    @Before
-    public void setUp () throws Exception {
-        driver = new FirefoxDriver();
-        baseUrl = "http://test.homeaway.com/";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-    }
+    public RatesPricing(WebDriver driver) {this.driver = driver; }
 
-    @Test
-    public void LoginTest () throws Exception {
-        //Login
-        driver.get(baseUrl + "/");
-        driver.findElement(By.cssSelector("div.js-interactionOverlay.interaction-overlay")).click();
-        driver.findElement(By.id("login-drop")).click();
-        driver.findElement(By.linkText("Owner Login")).click();
-        driver.findElement(By.id("username")).clear();
-        driver.findElement(By.id("username")).sendKeys("forAutomation@devmail.wvrgroup.internal");
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys("simplePass1");
-        driver.findElement(By.id("form-submit")).click();
-        //driver.findElement(By.id("answer")).clear();
-        //driver.findElement(By.id("answer")).sendKeys("test");
-        //driver.findElement(By.id("form-submit")).click();
-        //}
-
-        //NavigateToRatesLE
-        driver.findElement(By.id("gdEditListing")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.findElement(By.linkText("Rates")).click();
-        WebElement myDynamicElement = (new WebDriverWait(driver, 50))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='rates-wrapper']/div[9]/div[1]/h2")));
+    public void ratesPricingSection() throws Exception {
 
         //Click on DropDown
         driver.findElement(By.xpath(".//*[@id='add_rate_type_chzn']/a/span")).click();
@@ -91,35 +55,5 @@ public class AllTest {
         //driver.findElement(By.xpath(".//*[@id='calendar1']/table/tbody/tr[4]/td[4]/a")).click();
         //driver.findElement(By.id("eventForm_eventRate")).sendKeys("333");
         //driver.findElement(By.id("seasonalForm_add")).click();
-
-        //Add Tax
-        driver.findElement(By.xpath(".//*[@id='taxRateForm']/div[2]/div[1]/div/div")).click();
-        driver.findElement(By.id("taxRate")).sendKeys("15.1");
-
-        //Add RDD
-        driver.findElement(By.xpath(".//*[@id='protectionWrapper']/div[2]/div/div[2]/div/span/div[1]")).click();
-        driver.findElement(By.id("rddAmount")).sendKeys("254.89");
-
-        //Add text in Payment Terms section
-        driver.findElement(By.name("paymentTermsText")).sendKeys("Testing of Payment Terms section !@#$%^&*()_+");
-
-        //Add note
-        driver.findElement(By.name("notesText")).sendKeys("Testing of Notes section");
     }
-        @After
-        public void closeWindow()
-        {
-            driver.quit();
-
-        }
-    }
-
-
-
-
-
-
-
-
-
-
+}

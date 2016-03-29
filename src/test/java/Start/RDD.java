@@ -15,6 +15,6 @@ public class RDD {
 
         //Add RDD
         driver.findElement(By.xpath(".//*[@id='protectionWrapper']/div[2]/div/div[2]/div/span/div[1]")).click();
-        driver.findElement(By.id("rddAmount")).sendKeys("254.89");
+        driver.findElement(By.id("rddAmount")).sendKeys("254.8");
     }
 }

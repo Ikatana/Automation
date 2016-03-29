@@ -16,6 +16,7 @@ public NavigateToRatePage(WebDriver driver) {this.driver = driver; }
 
         driver.findElement(By.id("gdEditListing")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         driver.findElement(By.linkText("Rates")).click();
         WebElement myDynamicElement = (new WebDriverWait(driver, 50))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='rates-wrapper']/div[9]/div[1]/h2")));

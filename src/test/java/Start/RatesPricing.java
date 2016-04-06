@@ -30,7 +30,7 @@ public class RatesPricing {
         driver.findElement(By.id("baseForm_add")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-        //Add seasonal pricing
+        /*Add seasonal pricing
         driver.findElement(By.xpath(".//*[@id='add_rate_type_chzn']/a/span")).click();
         driver.findElement(By.xpath(".//*[@id='add_rate_type_chzn_o_0']")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -45,6 +45,8 @@ public class RatesPricing {
         driver.findElement(By.id("seasonalForm_weeklyRate")).sendKeys("1000");
         driver.findElement(By.id("seasonalForm_monthlyRate")).sendKeys("3333");
         driver.findElement(By.id("seasonalForm_add")).click();
+
+*/
 
         //Add event pricing
         //driver.findElement(By.xpath(".//*[@id='add_rate_type_chzn']/a/span")).click();

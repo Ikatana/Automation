@@ -1,4 +1,4 @@
-package TestData;
+package PageObject;
 
 import org.junit.After;
 import org.junit.Assert;

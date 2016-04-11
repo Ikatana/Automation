@@ -1,6 +1,5 @@
-package Start;
+package Tests;
 
-import com.sun.org.apache.bcel.internal.generic.Select;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.fail;
-import static org.openqa.selenium.support.ui.ExpectedConditions.*;
+
 import org.openqa.selenium.By;
 
 public class AllTest {

@@ -1,7 +1,7 @@
 
 package Tests;
 
-import TestData.*;
+import PageObject.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;

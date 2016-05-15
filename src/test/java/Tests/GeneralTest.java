@@ -1,7 +1,7 @@
 
-package Start;
+package Tests;
 
-import TestData.Start;
+import PageObject.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;

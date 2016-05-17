@@ -1,12 +1,14 @@
-package TestData;
+package PageObject;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import java.util.concurrent.TimeUnit;
+
+        import org.junit.After;
+        import org.junit.Assert;
+        import org.junit.Before;
+        import org.openqa.selenium.By;
+        import org.openqa.selenium.WebDriver;
+        import org.openqa.selenium.firefox.FirefoxDriver;
+        import java.util.concurrent.TimeUnit;
 
 public class Start {
     public WebDriver driver;
@@ -25,11 +27,10 @@ public class Start {
         Assert.assertTrue(driver.findElement(By.id("gdEditListing")).isDisplayed());
 
         //Navigate to Rates page
-        NavigateToRatePage navigateToRatePage = new NavigateToRatePage (driver);
-        navigateToRatePage.navToRates ();
+        GoToRatesOnboarding goToRatesOnboarding = new GoToRatesOnboarding (driver);
+        goToRatesOnboarding.navToRates ();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-        Assert.assertTrue(driver.findElement(By.linkText("Rates")).isDisplayed());
     }
 
     @After

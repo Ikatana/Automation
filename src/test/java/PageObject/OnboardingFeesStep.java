@@ -3,11 +3,11 @@ package PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OnboardingFees {
+public class OnboardingFeesStep {
 
     public WebDriver driver;
 
-    public OnboardingFees(WebDriver driver) {
+    public OnboardingFeesStep(WebDriver driver) {
         this.driver = driver;
     }
 

@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class OnboardingTaxes {
+public class OnboardingTaxesStep {
 
     public WebDriver driver;
 
-    public OnboardingTaxes(WebDriver driver) {
+    public OnboardingTaxesStep(WebDriver driver) {
         this.driver = driver;
     }
 

@@ -24,8 +24,6 @@ public class Start {
         Login login = new Login(driver);
         login.loginPage("forAutomation@devmail.wvrgroup.internal", "simplePass1");
 
-        Assert.assertTrue(driver.findElement(By.id("gdEditListing")).isDisplayed());
-
         //Navigate to Rates page
         GoToRatesOnboarding goToRatesOnboarding = new GoToRatesOnboarding (driver);
         goToRatesOnboarding.navToRates ();

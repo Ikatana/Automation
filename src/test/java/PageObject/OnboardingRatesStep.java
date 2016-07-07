@@ -1,8 +1,13 @@
 package PageObject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class OnboardingRatesStep extends BasePage {
+
+    public OnboardingRatesStep(WebDriver driver) {
+        super(driver);
+    }
 
 
     //Set up VALID amount to Standard (Base) rate input field
@@ -11,6 +16,8 @@ public class OnboardingRatesStep extends BasePage {
         By standard_nightly_rate_field_valid_value = By.id("rates-onboarding-base-rate-amount");
         clear(standard_nightly_rate_field_valid_value);
         sendKeys(standard_nightly_rate_field_valid_value, expected_price);
+        By min_Stay = By.id("rates-onboarding-base-rate-minstay");
+        click(min_Stay);
     }
 
     //Set up NEGATIVE amount to Standard (Base) rate input field

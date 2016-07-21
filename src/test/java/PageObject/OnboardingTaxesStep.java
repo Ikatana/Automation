@@ -14,16 +14,23 @@ public class OnboardingTaxesStep extends BasePage {
 
     //User can select 1 of 2 options: "Enter your tax rate" or "Do not include taxes"
 
-    public void setValidTaxPercent(String expected_valid_tax) {
-
+    public void clickOnTaxRateRadioButton () {
         By tax_rate_radio_button = By.id("rates-onboarding-tax-taxCalculation-percentage");
         click(tax_rate_radio_button);
+    }
+
+    public void clickOnTaxIncludedRadioButton () {
+        By tax_included_radio_button = By.id("rates-onboarding-tax-taxCalculation-included");
+        click(tax_included_radio_button);
+    }
+
+        public void setValidTaxPercent(String expected_valid_tax) {
         By tax_percentage_valid_amount = By.id("rates-onboarding-tax-rate");
         sendKeys(tax_percentage_valid_amount, expected_valid_tax);
-        click(tax_rate_radio_button);
+            }
 
+    public void clickOnNextButton () {
         By next_button = By.xpath("//*[contains(text(),'Next')]");
         click(next_button);
-
-           }
+    }
 }

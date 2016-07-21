@@ -11,13 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 public class SetUpRatePricings extends Start {
 
-//    @Before
-//    public void setUp() throws Exception {
-//        driver = new FirefoxDriver();
-//        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//        driver.manage().window().maximize();
-//    }
-
     @Test
     public void ownerAddsRatePricings () throws Exception {
         loginAndGoToRates();
@@ -25,9 +18,11 @@ public class SetUpRatePricings extends Start {
         //Add Valid Standard pricing
 
         OnboardingRatesStep onboardingRatesStep = new OnboardingRatesStep(driver);
-        onboardingRatesStep.setValidBaseRateAmount("175");
+        onboardingRatesStep.setValidBaseRateAmount("176");
 
-        Assert.assertEquals("175.00", driver.findElement(By.id("rates-onboarding-base-rate-amount")).getAttribute("value"));
+        onboardingRatesStep.clickOnAdditionalRatePeriodLink();
+
+        Assert.assertEquals("176.00", driver.findElement(By.id("rates-onboarding-base-rate-amount")).getAttribute("value"));
         Assert.assertEquals("1", driver.findElement(By.id("rates-onboarding-base-rate-minstay")).getAttribute("value"));
 
         onboardingRatesStep.clickOnNextButton();
@@ -35,19 +30,31 @@ public class SetUpRatePricings extends Start {
         //Add Valid Tax
 
         OnboardingTaxesStep onboardingTaxesStep = new OnboardingTaxesStep(driver);
+        onboardingTaxesStep.clickOnTaxRateRadioButton();
+
         onboardingTaxesStep.setValidTaxPercent("18.3");
+
+        onboardingTaxesStep.clickOnTaxRateRadioButton();
 
         Assert.assertEquals("18.300", driver.findElement(By.id("rates-onboarding-tax-rate")).getAttribute("value"));
 
+        onboardingTaxesStep.clickOnNextButton();
+
+        //Add Valid Cleaning Fee
+
+        OnboardingFeesStep onboardingFeesStep = new OnboardingFeesStep(driver);
+        onboardingFeesStep.setValidCleaningFee("178.6");
+
+        //Add Valid Pets Fee
+        OnboardingFeesStep onboardingFeesStep1 = new OnboardingFeesStep(driver);
+        onboardingFeesStep1.setValidPetsFee("25");
+
+        Assert.assertEquals("178.60", driver.findElement(By.id("rates-onboarding-fees-cleaning")).getAttribute("value"));
+        Assert.assertEquals("25.00", driver.findElement(By.id("rates-onboarding-fees-pet_fee")).getAttribute("value"));
+
+        onboardingFeesStep.clickOnNextButton();
 
 
-
-
-
-
-
-
-        //base_rate_amount_valid = sendKeys(By.id("rates-onboarding-base-rate-amount"));
 
     }
 

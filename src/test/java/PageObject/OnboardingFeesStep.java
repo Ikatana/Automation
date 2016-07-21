@@ -3,23 +3,36 @@ package PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OnboardingFeesStep {
+public class OnboardingFeesStep extends BasePage {
 
-    public WebDriver driver;
-
-    public OnboardingFeesStep(WebDriver driver) {
-        this.driver = driver;
+    public OnboardingFeesStep (WebDriver driver) {
+        super(driver);
     }
 
-    public void feeInfo() throws Exception {
+    ////User can select 1 or 2 fees: "Cleaning fee" or/and "Pet fee". User can continue without fees
 
-        //User can select 1 or 2 fees: "Cleaning fee" or/and "Pet fee"
-        driver.findElement(By.id("rates-onboarding-fees-cleaning")).click();
-        driver.findElement(By.id("rates-onboarding-fees-cleaning")).sendKeys("205.1");
-        driver.findElement(By.id("rates-onboarding-fees-pet_fee-yes")).click();
-        driver.findElement(By.id("rates-onboarding-fees-pet_fee")).clear();
-        driver.findElement(By.id("rates-onboarding-fees-pet_fee")).sendKeys("50");
-        //driver.findElement(By.id("rates-onboarding-fees-pet_fee-taxable")).click();
-        driver.findElement(By.xpath("//*[contains(text(),'Next')]")).click();
+    public void setValidCleaningFee(String expected_valid_cleaning_fee) {
+
+        By cleaning_fee_valid_amount = By.id("rates-onboarding-fees-cleaning");
+        sendKeys(cleaning_fee_valid_amount, expected_valid_cleaning_fee);
     }
+
+    public void setValidPetsFee(String expected_valid_pets_fee) {
+
+        By pets_fee_Yes_radio_button = By.id("rates-onboarding-fees-pet_fee-yes");
+        click(pets_fee_Yes_radio_button);
+
+        By pets_fee_valid_amount = By.id("rates-onboarding-fees-pet_fee");
+        sendKeys(pets_fee_valid_amount, expected_valid_pets_fee);
+
+        By pets_fee_taxable_checkbox = By.id("rates-onboarding-fees-pet_fee-taxable");
+        click(pets_fee_taxable_checkbox);
+    }
+
+    public void clickOnNextButton () {
+        By next_button = By.xpath("//*[contains(text(),'Next')]");
+        click(next_button);
+    }
+
+
 }

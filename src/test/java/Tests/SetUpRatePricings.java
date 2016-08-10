@@ -54,6 +54,31 @@ public class SetUpRatePricings extends Start {
 
         onboardingFeesStep.clickOnNextButton();
 
+        //Check Complete page
+        OnboardingCompleteStep onboardingCompleteStep = new OnboardingCompleteStep(driver);
+        onboardingCompleteStep.completeInfo();
+
+        onboardingCompleteStep.clickOnCompleteButton();
+
+        //Select Payment option
+        OnboardingPaymentTermsStep onboardingPaymentTermsStep = new OnboardingPaymentTermsStep(driver);
+        onboardingPaymentTermsStep.selectPaymentOption50percents();
+        onboardingPaymentTermsStep.selectPaymentOption50percents();
+
+        onboardingPaymentTermsStep.clickOnNextButton();
+
+        //Select Cancellation policy option
+        OnboardingCancellationPolicy onboardingCancellationPolicy = new OnboardingCancellationPolicy(driver);
+        onboardingCancellationPolicy.selectRelaxedOption();
+
+        onboardingCancellationPolicy.clickOnNextButton();
+
+        //Set RDD
+        OnboardingProtectionStep onboardingProtectionStep = new OnboardingProtectionStep(driver);
+        onboardingProtectionStep.clickOnRDDcheckBox();
+
+        onboardingProtectionStep.setValidRDD("500");
+
 
 
     }
